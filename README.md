@@ -18,13 +18,16 @@ Write the C Program using Linux Process API - Sempahores
 
 Execute the C Program for the desired output. 
 
-## PROGRAM:
+# PROGRAM:
+## NAME : AARON RAJESH R
+## REGISTER NUMBER : 212223100001
 
 ## Write a C program that implements a producer-consumer system with two processes using Semaphores.
 ```
 /*
- * sem.c  - demonstrates a basic producer-consumer
- *                            implementation.              */
+ * sem-producer-consumer.c  - demonstrates a basic producer-consumer
+ *                            implementation.
+ */
 #include <stdio.h>	 /* standard I/O routines.              */
 #include <stdlib.h>      /* rand() and srand() functions        */
 #include <unistd.h>	 /* fork(), etc.                        */
@@ -37,7 +40,6 @@ Execute the C Program for the desired output.
 /* union semun is defined by including <sys/sem.h> */
 #else
 /* according to X/OPEN we have to define it ourselves */
-
 union semun {
         int val;                    /* value for SETVAL */
         struct semid_ds *buf;       /* buffer for IPC_STAT, IPC_SET */
@@ -71,7 +73,7 @@ int main(int argc, char* argv[])
 	case -1:	/* fork() failed */
 	    perror("fork");
 	    exit(1);
-case 0:		/* child process here */
+	case 0:		/* child process here */
 	    for (i=0; i<NUM_LOOPS; i++) {
 		/* block on the semaphore, unless it's value is non-negative. */
 		sem_op.sem_num = 0;
@@ -88,7 +90,7 @@ case 0:		/* child process here */
 		fflush(stdout);
 		/* increase the value of the semaphore by 1. */
 		sem_op.sem_num = 0;
-sem_op.sem_op = 1;
+					sem_op.sem_op = 1;
 		sem_op.sem_flg = 0;
 		semop(sem_set_id, &sem_op, 1);
 		/* pause execution for a little bit, to allow the */
@@ -104,21 +106,23 @@ if(NUM_LOOPS>=10)    {
 	    }}
 	    break;
     }
-    return 0;
-}
+    return 0;}
+
 ```
 
 
-## OUTPUT:
 
-$ ./sem.o
 
-![image](https://github.com/22008686/Linux-IPC-Semaphores/assets/118916413/cb136fa8-bbe3-4cc8-a32a-ebfc47b70101)
 
-$ ipcs
 
-![image](https://github.com/22008686/Linux-IPC-Semaphores/assets/118916413/284ed012-a1c5-461f-aba9-98b9a1f2d343)
+## OUTPUT
 
-## RESULT:
+![image](https://github.com/Aaron-0111/Linux-IPC-Semaphores/assets/149347631/c3188a68-6910-4c17-81d7-688ff48f536f)
 
+
+
+
+
+
+# RESULT:
 The program is executed successfully.
