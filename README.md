@@ -19,8 +19,6 @@ Write the C Program using Linux Process API - Sempahores
 Execute the C Program for the desired output. 
 
 # PROGRAM:
-## NAME : AARON RAJESH R
-## REGISTER NUMBER : 212223100001
 
 ## Write a C program that implements a producer-consumer system with two processes using Semaphores.
 ```
